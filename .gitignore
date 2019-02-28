@@ -20,9 +20,11 @@
 *.rar
 
 .idea/
+
 /node_modules
 package-lock.json
 /build
+/ev_front-end/node_modules
 target/
 *.iml
 
