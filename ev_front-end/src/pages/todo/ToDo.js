@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Article from '../../components/article/Article';
+import Doings from '../../components/doings/Doings';
 
 import list from './list';
 
 import './style.css';
 
-export default class Home extends React.Component {
+export default class ToDo extends React.Component {
   renderList = () => {
     return list.data.map((item, index) => {
       return (
-        <Article key={index} title={item.title} description={item.description} />
+        <Doings key={index} description={item.description} />
       );
     });
   };
