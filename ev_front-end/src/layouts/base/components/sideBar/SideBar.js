@@ -9,8 +9,16 @@ export default class SideBar extends React.Component {
 
     return (
       <aside className={`side-bar${className ? ` ${className}` : ''}`}>
-        <a href="URL" className='side-bar__element side-bar__todo'>To Do</a>
-        <a href="URL" className='side-bar__element side-bar__done'>Done</a>
+        <nav className={'side-bar_nav-menu nav-menu'}>
+          <ul className={'nav-menu__list'}>
+            <li className={'nav-menu__item'}>
+              <h1 className='side-bar__element side-bar__todo'>To Do</h1>
+            </li>
+            <li className={'nav-menu__item'}>
+              <h1 className='side-bar__element side-bar__done'>Done</h1>
+            </li>
+          </ul>
+        </nav>
       </aside>
     );
   };
