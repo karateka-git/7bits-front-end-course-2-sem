@@ -7,9 +7,9 @@ export default class Doings extends React.Component {
   render() {
     return (
         <input
-            type={'button'}
+            type='button'
             value={this.props.description}
-            className={'main__button button'}
+            className='main__button button'
         />
     );
   };
