@@ -5,21 +5,22 @@ import './style.css';
 
 export default class Doings extends React.Component {
   render() {
-    const { keyee } = this.props;
     return (
-      <article className="article">
-        <p className={`article__description ${keyee}`}>{this.props.description}</p>
-      </article>
+        <input
+            type={'button'}
+            value={this.props.description}
+            className={'main__button button'}
+        />
     );
   };
 };
 
 Doings.propTypes = {
   description: PropTypes.string,
-  keyee: PropTypes.string
+  taskNumber: PropTypes.string
 };
 
 Doings.defaultProps = {
   description: '',
-  keyee: ''
+  taskNumber: ''
 };
