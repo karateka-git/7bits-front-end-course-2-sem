@@ -10,7 +10,7 @@ export default class ToDo extends React.Component {
   renderList = () => {
     return list.data.map((item, index) => {
       return (
-        <Doings taskNumber={index.toString()} description={item.description} />
+        <Doings taskNumber={index.toString()} description={item.description} page={'todo'}/>
       );
     });
   };

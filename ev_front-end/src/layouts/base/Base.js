@@ -10,7 +10,7 @@ export default class Base extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
+        <Header userName='vlad'/>
         <main className='main'>
           <SideBar className='main__side-bar'/>
           <section className='main__content'>

@@ -1,50 +1,109 @@
-.button {
-    padding: 0;
+.main__task {
+    position: relative;
     font-family: "Roboto", sans-serif;
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
     border: 0;
     background-color: #ffffff;
-    outline: none;
     cursor: pointer;
-}
-
-.button:focus {
-    border: 0.35px solid #c1eee0;
-    box-shadow: 0 1px 5px #c1eee0;
-}
-
-.button:active {
-    transform: translateY(1px);
-    filter: saturate(150%);
-}
-
-.main__button {
     width: 100%;
     height: 45px;
     margin-bottom: 5px;
-    font-size: 15px;
-    font-weight: 300;
     text-align: left;
-    padding-left: 35px;
+}
+
+.main__task:last-child {
+    margin-bottom: 0;
+}
+
+.main__task_done {
     background-repeat: no-repeat;
-    background-position: 12px 50%;
+    background-position: 2.5% 50%;
     background-size: 15px;
     background-image: url(images/done_task_gray@2x.png);
 }
 
-.main__button:focus {
+.main__task_done:active,
+.main__task_done:hover {
+    border: 0.35px solid #c1eee0;
+    box-shadow: 0 1px 5px #c1eee0;
     background-image: url(images/done_edit@2x.png);
 }
 
-.main__button:last-child {
-    margin-bottom: 0;
+.task__description {
+    margin: 0;
+    position: relative;
+    left: 35px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 15px;
+    font-weight: 300;
 }
 
-.article__description {
+.button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    visibility: hidden;
+}
 
-    margin: 0;
-    padding-left: 35px;
+.main__button_task {
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: center center;
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%)
+    transform: translate(0, -50%);
+}
+
+.button__b-delete {
+    background-image: url(images/delete@2x.png);
+    right: 4%;
+}
+
+.button__b-delete:focus,
+.button__b-delete:hover {
+    background-image: url(images/delete_red@2x.png);
+}
+
+.button__b-done {
+    visibility: visible;
+    background-image: url(images/O@2x.png);
+    left: 2.5%;
+}
+
+.button__b-done:focus,
+.button__b-done:hover {
+    background-image: url(images/O_hover@2x.png);
+}
+
+.button__b-pen {
+    background-image: url(images/pencil@2x.png);
+    right: 12%;
+}
+
+.button__b-pen:focus,
+.button__b-pen:hover {
+    background-image: url(images/pencil_blue@2x.png);
+}
+
+.main__task:active,
+.main__task:hover {
+    border: 0.35px solid #c1eee0;
+    box-shadow: 0 1px 5px #c1eee0;
+}
+
+.main__task:active,
+.main__task:hover .button__b-delete{
+    visibility: visible;
+}
+
+.main__task_todo:active,
+.main__task_todo:hover .button__b-pen {
+    visibility: visible;
 }
