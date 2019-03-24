@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 export default class Button extends React.Component {
-    handleClickOnButton;
     constructor(props) {
         super(props);
         this.handleClickOnButton = this.handleClickOnButton.bind(this);
     }
 
-    static handleClickOnButton(id) {
+    handleClickOnButton(id) {
         alert(id);
     }
 
