@@ -1,0 +1,23 @@
+.field {
+    border: none;
+    outline: none;
+    border-bottom: 1.3px solid #45d3a8;
+}
+
+.form__field {
+    width: 40%;
+    height: 25px;
+    margin-right: 5px;
+
+    font-size: 15px;
+    color: #353535;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+
+    padding-left: 3px;
+}
+
+.form__field::placeholder {
+    color: #939393;
+    -webkit-text-fill-color: #939393;
+}

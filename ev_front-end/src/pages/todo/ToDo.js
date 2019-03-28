@@ -6,13 +6,15 @@ import list from './list';
 
 import './style.css';
 import FormField from "../../components/formField/FormField";
+import Button from "../../components/button1/Button";
 
 export default class ToDo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      itemList: [...list.data]
+      itemList: [...list.data],
+      disabled: true
     };
   }
   renderList = (itemList) => {
@@ -26,7 +28,9 @@ export default class ToDo extends React.Component {
   onChange = (event) => {
     this.setState({
       value: event.target.value
-    })
+    }, () => {
+      this.state.value===''? this.setState({disabled:true}):this.setState({disabled:false});
+    });
   };
 
   onSubmit = (event) => {
@@ -34,6 +38,7 @@ export default class ToDo extends React.Component {
 
     this.setState( {
       value: '',
+      disabled: true,
       itemList: [
         {
           "description": this.state.value
@@ -55,10 +60,14 @@ export default class ToDo extends React.Component {
               value={this.state.value}
               placeholder={'Type you new task'}
               onChange={this.onChange}
+              type={'text'}
           />
-          <button className={'button form_button'} type='submit' >
-            create
-          </button>
+          <Button
+            className={'form__button'}
+            type={'submit'}
+            value={'create'}
+            disabled={this.state.disabled}
+          />
         </form>
         {this.renderList(this.state.itemList)}
       </React.Fragment>
