@@ -12,13 +12,13 @@ export default class ToDo extends React.Component {
     super(props);
     this.state = {
       value: '',
-      itemList: []
+      itemList: [...list.data]
     };
   }
   renderList = (itemList) => {
-    const items = itemList.map((item, index) => {
+    return itemList.map((item, index) => {
       return (
-        <Doings key={index} taskNumber={item.id} description={item.description} page={'todo'}/>
+        <Doings key={index} taskNumber={index.toString()} description={item.description} page={'todo'}/>
       );
     });
   };
@@ -29,12 +29,30 @@ export default class ToDo extends React.Component {
     })
   };
 
+  onSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState( {
+      value: '',
+      itemList: [
+        {
+          "description": this.state.value
+        },
+        ...this.state.itemList
+      ]
+    })
+  };
+
   render() {
     return (
       <React.Fragment>
-        <form className='todo-form'>
+        <form
+            className='todo-form'
+            onSubmit={this.onSubmit}
+        >
           <FormField
               className={'form__field'}
+              value={this.state.value}
               placeholder={'Type you new task'}
               onChange={this.onChange}
           />
