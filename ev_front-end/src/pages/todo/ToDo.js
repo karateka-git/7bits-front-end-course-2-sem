@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Doings from '../../components/doings/Doings';
+import Tasks from '../../components/tasks/tasks';
 
 import list from './list';
 
 import './style.css';
 import FormField from "../../components/formField/FormField";
-import Button from "../../components/button1/Button";
+import Button from "../../components/tasks/button/Button";
 
 export default class ToDo extends React.Component {
   constructor(props) {
@@ -17,10 +17,34 @@ export default class ToDo extends React.Component {
       disabled: true
     };
   }
+
+  handleClickOnButton = (id) => {
+    alert(id);
+  };
+
   renderList = (itemList) => {
     return itemList.map((item, index) => {
       return (
-        <Doings key={index} taskNumber={index.toString()} description={item.description} page={'todo'}/>
+        <Tasks key={index} taskNumber={index.toString()} description={item.description} page={'todo'}
+            buttonChange = {
+              <Button
+                className={"button__b-pen main__button_task"}
+                onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
+              />
+            }
+            buttonDelete = {
+              <Button
+                className={"button__b-delete main__button_task"}
+                onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
+              />
+            }
+            buttonDone ={
+              <Button
+                  className={"button__b-done main__button_task"}
+                  onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
+              />
+            }
+      />
       );
     });
   };
@@ -28,8 +52,6 @@ export default class ToDo extends React.Component {
   onChange = (event) => {
     this.setState({
       value: event.target.value
-    }, () => {
-      this.state.value===''? this.setState({disabled:true}):this.setState({disabled:false});
     });
   };
 
@@ -66,7 +88,7 @@ export default class ToDo extends React.Component {
             className={'form__button'}
             type={'submit'}
             value={'create'}
-            disabled={this.state.disabled}
+            disabled={this.state.value === ''}
           />
         </form>
         {this.renderList(this.state.itemList)}

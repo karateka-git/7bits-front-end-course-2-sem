@@ -16,7 +16,7 @@ export default class Button extends React.Component {
     render() {
         return (
             <button onClick={this.handleClickOnButton.bind(this, this.props.id)}
-                    className={`button__b-${this.props.name} button main__button_task`}/>
+                    className={`${this.props.name} button`}/>
         );
     };
 };
