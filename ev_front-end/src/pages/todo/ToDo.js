@@ -6,7 +6,8 @@ import list from './list';
 
 import './style.css';
 import FormField from "../../components/formField/FormField";
-import Button from "../../components/tasks/button/Button";
+import Button from "../../components/button1/Button";
+import TodoTasks from "../../components/tasks/todoTasks/TodoTasks";
 
 export default class ToDo extends React.Component {
   constructor(props) {
@@ -18,33 +19,12 @@ export default class ToDo extends React.Component {
     };
   }
 
-  handleClickOnButton = (id) => {
-    alert(id);
-  };
-
   renderList = (itemList) => {
     return itemList.map((item, index) => {
       return (
         <Tasks key={index} taskNumber={index.toString()} description={item.description} page={'todo'}
-            buttonChange = {
-              <Button
-                className={"button__b-pen main__button_task"}
-                onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
-              />
-            }
-            buttonDelete = {
-              <Button
-                className={"button__b-delete main__button_task"}
-                onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
-              />
-            }
-            buttonDone ={
-              <Button
-                  className={"button__b-done main__button_task"}
-                  onClick={this.handleClickOnButton.bind(this, this.props.taskNumber)}
-              />
-            }
-      />
+               buttonTask={<TodoTasks taskId={index.toString()}/>}
+        />
       );
     });
   };

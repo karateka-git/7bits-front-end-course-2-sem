@@ -15,18 +15,20 @@ export default class Button extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClickOnButton.bind(this, this.props.id)}
-                    className={`${this.props.name} button`}/>
+            <button onClick={this.props.onClick}
+                    className={`${this.props.className} button`}/>
         );
     };
 };
 
 Button.propTypes = {
-    name: PropTypes.string,
+    className: PropTypes.string,
+    onClick: () => {},
     id: PropTypes.string
 };
 
 Button.defaultProps = {
-    name: '',
+    className: '',
+    onClick: PropTypes.func,
     id: ''
 };
